@@ -31,7 +31,7 @@ TEST_CASE("telephone2") {
 
  CHECK( "0473449520" == iphone.getNumero());
 }
-/*
+
 TEST_CASE("Reseau1") {
  Reseau r;
  CHECK ("" == r.lister());
@@ -41,7 +41,7 @@ TEST_CASE("Reseau1") {
  r.ajouter("0473407632");
  CHECK ("0473405000\n0473407632\n" == r.lister());
 }
-
+/*
 TEST_CASE("Reseau2") {
  Reseau r;
  CHECK ("" == r.lister());

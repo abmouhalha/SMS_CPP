@@ -19,6 +19,17 @@ class Telephone
 
 };
 
+class Reseau
+{
+    private:
+        vector<Telephone> reseau;
+    public:
+        string lister();
+        Reseau();
+        void ajouter(string addTelephone);
+
+};
+
 
 
 #endif

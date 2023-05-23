@@ -27,3 +27,19 @@ Telephone::Telephone()
 }
 
 
+string Reseau::lister()
+{
+    string allReseau="";
+     for (int i = 0; i < reseau.size(); i++) {
+       allReseau += reseau[i].getNumero() + "\n";
+    }
+
+    return allReseau;
+}
+
+Reseau::Reseau(){}
+
+void Reseau::ajouter(string addTelephone){
+    reseau.push_back(addTelephone);
+}
+
