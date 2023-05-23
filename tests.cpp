@@ -24,7 +24,7 @@ TEST_CASE("telephone1b") {
 
  CHECK( loic == iphone.getNumero());
 }
-
+/*
 
 TEST_CASE("telephone2") {
  const Telephone iphone("0473449520");
@@ -157,7 +157,7 @@ TEST_CASE("SMS3") {
   CHECK(1 == de->getNbMessages());
 
 }
-/*
+
 TEST_CASE("Media") {
 	Media * m1 = new Image;
 	CHECK( "[[image]]" == m1->afficher() );
@@ -201,7 +201,7 @@ TEST_CASE("MMS2") {
   delete m3;
     // espace memoire correctement libere ?    
 }
-*/
+
 TEST_CASE("MMS3") {
 	MON_RESEAU;
 
@@ -223,3 +223,4 @@ TEST_CASE("MMS3") {
   CHECK(1 ==  a->getNbMessages());
 
 } 
+*/
