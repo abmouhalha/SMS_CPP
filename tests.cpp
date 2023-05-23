@@ -24,14 +24,14 @@ TEST_CASE("telephone1b") {
 
  CHECK( loic == iphone.getNumero());
 }
-/*
+
 
 TEST_CASE("telephone2") {
  const Telephone iphone("0473449520");
 
  CHECK( "0473449520" == iphone.getNumero());
 }
-
+/*
 TEST_CASE("Reseau1") {
  Reseau r;
  CHECK ("" == r.lister());

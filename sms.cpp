@@ -6,7 +6,7 @@
 #include<algorithm>
 
 
-string Telephone::getNumero() 
+string Telephone::getNumero() const 
 {
     return number;
 }
@@ -23,7 +23,7 @@ Telephone::Telephone(string theNumber):number(theNumber)
 
 Telephone::Telephone()
 {
-    
+
 }
 
 

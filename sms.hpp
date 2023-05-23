@@ -10,7 +10,7 @@ class Telephone
     private:
         string number="";
     public:
-        string getNumero() ;
+        string getNumero() const;
         void setNumero(string newNumber);
         Telephone(string theNumber);
         Telephone();
