@@ -29,9 +29,16 @@ Telephone::Telephone()
 
 string Reseau::lister()
 {
-    string allReseau="";
-     for (int i = 0; i < reseau.size(); i++) {
-       allReseau += reseau[i].getNumero() + "\n";
+    vector<Telephone> copieReseau = reseau;
+
+    // Trie la copieReseau selon le numéro de téléphone
+    sort(copieReseau.begin(), copieReseau.end(), [](const Telephone& t1, const Telephone& t2) {
+        return t1.getNumero() < t2.getNumero();
+    });
+
+    string allReseau = "";
+    for (int i = 0; i < copieReseau.size(); i++) {
+        allReseau += copieReseau[i].getNumero() + "\n";
     }
 
     return allReseau;
@@ -41,5 +48,25 @@ Reseau::Reseau(){}
 
 void Reseau::ajouter(string addTelephone){
     reseau.push_back(addTelephone);
+}
+
+Telephone Reseau::trouveTel(string numberSearched)
+{
+    Telephone defaultNumber;
+    for (int i = 0; i < reseau.size(); i++) {
+
+        if( reseau[i].getNumero() == numberSearched )
+        {
+            return reseau[i];
+        }
+    }
+
+    return defaultNumber;
+
+}
+
+Reseau* Telephone::getReseau() const
+{
+    return reseau;
 }
 

@@ -37,11 +37,11 @@ TEST_CASE("Reseau1") {
  CHECK ("" == r.lister());
 
  r.ajouter("0473405000");
- CHECK ("0473405000\n" == r.lister());
+ CHECK ("0473405000\n" == r.lister()); 
  r.ajouter("0473407632");
  CHECK ("0473405000\n0473407632\n" == r.lister());
 }
-/*
+
 TEST_CASE("Reseau2") {
  Reseau r;
  CHECK ("" == r.lister());
@@ -67,9 +67,10 @@ TEST_CASE("Reseau3") {
  MON_RESEAU;
 
  CHECK("0473405042" == r.trouveTel("0473405042").getNumero());
-//  CHECK(&r           == r.trouveTel("0473405042").getReseau());
+ CHECK(&r           == r.trouveTel("0473405042").getReseau());
 }
 
+/*
 TEST_CASE("Telephone3") {
  const Telephone t;
 
