@@ -19,8 +19,8 @@ class Telephone
         Telephone(string theNumber);
         Telephone();
         Reseau* getReseau() const;
-
-
+        void setReseau(Reseau* network);
+        
 };
 
 class Reseau

@@ -53,14 +53,18 @@ void Reseau::ajouter(string addTelephone){
 Telephone Reseau::trouveTel(string numberSearched)
 {
     Telephone defaultNumber;
+    Reseau* network= this;
     for (int i = 0; i < reseau.size(); i++) {
 
         if( reseau[i].getNumero() == numberSearched )
-        {
+        {   
+            defaultNumber.setReseau( network );
+            delete network;
             return reseau[i];
         }
     }
-
+    delete network;
+   
     return defaultNumber;
 
 }
@@ -70,3 +74,7 @@ Reseau* Telephone::getReseau() const
     return reseau;
 }
 
+void Telephone::setReseau(Reseau* network)
+{
+   *reseau = *network;
+}
