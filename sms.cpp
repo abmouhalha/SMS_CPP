@@ -136,3 +136,39 @@ Video::Video()
 {
     mda="[[video]]";
 }
+
+
+ MMS::MMS(std::string a,std::string b,std::string c){
+    expediteur=a;
+    destinataire=b;
+    data=c;
+ }
+std::string MMS::afficher(){
+    return msg;
+}
+void MMS::joindre(Media* med){
+    msg = msg + med->afficher();
+}
+void MMS::setTexte(std::string text){
+    
+    msg = text + msg;
+}
+
+
+std::string MMS::getDe(){
+    return expediteur;
+}
+std::string MMS::getA()
+{
+    return destinataire;
+}
+
+void Telephone::mmser(std::string a,MMS* mms)
+{
+    mms->setDestination(a);
+}
+
+void Message::setDestination(std::string a)
+{
+    destinataire=a;
+}

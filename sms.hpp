@@ -6,6 +6,7 @@
 #include <stdexcept>
 
 class Reseau; // Forward declaration of the Reseau class
+class MMS;
 
 class Telephone
 {
@@ -24,6 +25,7 @@ public:
     int getNbMessages()const;
     void textoter(std::string dest,std::string msg);
     void addMsg();
+    void mmser(std::string a, MMS* mms);
 };
 
 class Reseau
@@ -61,6 +63,7 @@ public:
     std::string afficher();
     static int getCle();
     int getId();
+    void setDestination(std::string a);
 
 };
 
@@ -109,14 +112,18 @@ public:
 };
 
 
-class MMS : public Message
+class MMS : public SMS 
 {
 private:
-    /* data */
+    std::string msg;
+    std::string txt;
 public:
     MMS(std::string a,std::string b,std::string c);
     std::string afficher();
-    ~MMS();
+    void joindre(Media* med);
+    void setTexte(std::string text);
+    std::string getDe();
+    std::string getA();
 };
 
 

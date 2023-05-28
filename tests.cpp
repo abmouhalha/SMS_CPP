@@ -170,7 +170,7 @@ TEST_CASE("Media") {
 	CHECK( "[[video]]" == m3->afficher() );
 	delete m3;
 }
-/*
+
 TEST_CASE("MMS1") {
 	MMS * m1 = new MMS("", "", "");
   CHECK("" == m1->afficher());
@@ -224,4 +224,3 @@ TEST_CASE("MMS3") {
   CHECK(1 ==  a->getNbMessages());
 
 } 
-*/
