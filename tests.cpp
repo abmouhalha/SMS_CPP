@@ -93,7 +93,7 @@ TEST_CASE("Reseau6") {
 
   CHECK_THROWS_AS("0473405070" == r.trouveTel("0473405070").getNumero(), MauvaisNumero);
 }
-/*
+
 
 TEST_CASE("SMS1") {
 	SMS sms("0473405044", "0473405042", "20171207");
@@ -170,7 +170,7 @@ TEST_CASE("Media") {
 	CHECK( "[[video]]" == m3->afficher() );
 	delete m3;
 }
-
+/*
 TEST_CASE("MMS1") {
 	MMS * m1 = new MMS("", "", "");
   CHECK("" == m1->afficher());
@@ -188,16 +188,16 @@ TEST_CASE("MMS1") {
 }
 
 TEST_CASE("MMS2") {
-	// MMS * m1 = new MMS("", "", "");
-  // CHECK("" == m1->afficher());
-  // m1->joindre(new Video);
+	MMS * m1 = new MMS("", "", "");
+  CHECK("" == m1->afficher());
+  m1->joindre(new Video);
 
   SMS * m2 = m1;
   m2->setTexte("exam");
   CHECK("exam[[video]]" == m2->afficher());    
 
   Message * m3 = m1;
-  // CHECK("exam[[video]]" == m3->afficher());    
+  CHECK("exam[[video]]" == m3->afficher());    
 
   delete m3;
     // espace memoire correctement libere ?    
@@ -212,13 +212,13 @@ TEST_CASE("MMS3") {
   CHECK(0 == de->getNbMessages());
   CHECK(0 ==  a->getNbMessages());
 
-  // MMS* mms = new MMS("", "", "");
-  // mms->joindre(new Video);
+  MMS* mms = new MMS("", "", "");
+  mms->joindre(new Video);
 
-  // de->mmser("0473407632", mms);
+  de->mmser("0473407632", mms);
 
-  // CHECK("0473405042" == mms->getDe());
-  // CHECK("0473407632" == mms->getA());    
+  CHECK("0473405042" == mms->getDe());
+  CHECK("0473407632" == mms->getA());    
 
   CHECK(1 == de->getNbMessages());
   CHECK(1 ==  a->getNbMessages());

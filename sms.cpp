@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <stdexcept>
 
+int Message::cle =0;
 
 std::string Telephone::getNumero() const
 {
@@ -14,8 +15,9 @@ void Telephone::setNumero(const std::string& newNumber)
 }
 
 Telephone::Telephone(const std::string& theNumber)
-    : number(theNumber), reseau(nullptr)
+    : number(theNumber), reseau(nullptr), nbMessage(0)
 {
+
 }
 
 Telephone::Telephone()
@@ -50,14 +52,18 @@ Reseau* Telephone::getReseau() const
     return reseau;
 }
 
-const Telephone& Reseau::trouveTel(const std::string& numberSearched) const
+Telephone& Reseau::trouveTel(const std::string& numberSearched) const
 {
-    for (const Telephone& telephone : reseau) {
-        if (telephone.getNumero() == numberSearched) {
-            return telephone;
+    for (std::vector<Telephone>::size_type i = 0; i < reseau.size(); i++) {
+        if (reseau[i].getNumero() == numberSearched) {
+            return reseau[i]; // Return the object, not its address
         }
     }
-    throw MauvaisNumero();}
+    throw MauvaisNumero();
+}
+
+
+
 
 
 void Telephone::setReseau(Reseau* network)
@@ -65,3 +71,68 @@ void Telephone::setReseau(Reseau* network)
     reseau = network;
 }
 
+SMS::SMS(){}
+SMS::SMS(std::string a,std::string b,std::string c){
+    expediteur=a;
+    destinataire=b;
+    data=c;
+    }
+void SMS::setTexte(std::string a){
+    data=a;
+}
+std::string SMS::getTexte(){
+    return data;
+}
+
+Message::Message(/* args */){
+    id = cle;
+    cle ++;
+}
+std::string Message::afficher(){
+
+    return data;
+}
+int Message::getCle(){
+    return cle;
+}
+
+int Message::getId(){
+    return id;
+}
+
+int Telephone::getNbMessages()const {
+    return nbMessage;
+}
+void Telephone::textoter(std::string dest, std::string msg)
+{
+    SMS sms(this->getNumero(), dest, msg);
+    nbMessage++;
+    // this->reseau->trouveTel(dest).addMsg();
+}
+
+void Telephone::addMsg()
+{
+    nbMessage++;
+
+}
+
+
+Media::Media(){}
+
+std::string Media::afficher()const{
+    return mda;
+}
+
+Image::Image(/* args */){
+    mda="[[image]]";
+    }
+
+Son::Son()
+{
+    mda="[[son]]";
+}
+
+Video::Video()
+{
+    mda="[[video]]";
+}
